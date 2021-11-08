@@ -2,17 +2,22 @@
   .calculator {
     flex-direction: column;
     justify-content: center;
-    height: 920px;
+    height: 860px;
     width: 480px; }
     .calculator__input {
       height: 400px;
-      margin-bottom: 20px; } }
+      margin-bottom: 20px; }
+    .calculator__result__tip-amount, .calculator__result__tip-total {
+      padding-bottom: 20px; }
+      .calculator__result__tip-amount__title h4, .calculator__result__tip-total__title h4 {
+        font-size: 1.6rem; }
+      .calculator__result__tip-amount__title span, .calculator__result__tip-total__title span {
+        font-size: 1.2rem; } }
 
 @media (max-width: 480px) {
   .calculator {
     flex-direction: column;
     justify-content: center;
-    height: 920px;
     width: 360px;
     max-width: 100%; }
     .calculator__input {
@@ -21,6 +26,10 @@
       margin-bottom: 20px; }
     .calculator__input__tip__list {
       max-width: 100%; }
+      .calculator__input__tip__list button,
+      .calculator__input__tip__list input {
+        flex: 0 0 50%;
+        max-width: 48%; }
     .calculator__result {
       max-width: 100%; }
       .calculator__result .amount-result,
