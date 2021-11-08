@@ -91,6 +91,7 @@ body {
       }
     }
 
+    &__bill div,
     &__people div {
       display: flex;
       justify-content: space-between;
@@ -102,6 +103,7 @@ body {
       }
     }
 
+    &__bill.invalid,
     &__people.invalid {
       .invalid-noti {
         display: block;
@@ -210,6 +212,12 @@ body {
       cursor: pointer;
       position: absolute;
       bottom: 40px;
+    }
+
+    .disabled-btn {
+      background-color: #e5e5e5 !important;
+      color: #bdbdbd !important;
+      cursor: default !important;
     }
   }
 }

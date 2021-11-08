@@ -75,16 +75,18 @@ body {
         border-radius: 5px; }
       .calculator__input__bill-wrap input:focus, .calculator__input__people-wrap input:focus {
         outline: solid 2px #34947c; }
+    .calculator__input__bill div,
     .calculator__input__people div {
       display: flex;
       justify-content: space-between; }
+      .calculator__input__bill div span,
       .calculator__input__people div span {
         display: none;
         font-size: 1.6rem;
         color: crimson; }
-    .calculator__input__people.invalid .invalid-noti {
+    .calculator__input__bill.invalid .invalid-noti, .calculator__input__people.invalid .invalid-noti {
       display: block; }
-    .calculator__input__people.invalid input {
+    .calculator__input__bill.invalid input, .calculator__input__people.invalid input {
       outline: solid 2px crimson; }
     .calculator__input__tip__list {
       margin-top: 10px;
@@ -162,6 +164,10 @@ body {
       cursor: pointer;
       position: absolute;
       bottom: 40px; }
+    .calculator__result .disabled-btn {
+      background-color: #e5e5e5 !important;
+      color: #bdbdbd !important;
+      cursor: default !important; }
 
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

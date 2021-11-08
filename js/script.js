@@ -41,26 +41,31 @@ const app = {
           case 'tip-5':
             app.tip = 5;
             app.renderTipBtn();
+            app.enableResetBtn();
             app.calResult();
             break;
           case 'tip-10':
             app.tip = 10;
             app.renderTipBtn();
+            app.enableResetBtn();
             app.calResult();
             break;
           case 'tip-15':
             app.tip = 15;
             app.renderTipBtn();
+            app.enableResetBtn();
             app.calResult();
             break;
           case 'tip-25':
             app.tip = 25;
             app.renderTipBtn();
+            app.enableResetBtn();
             app.calResult();
             break;
           case 'tip-50':
             app.tip = 50;
             app.renderTipBtn();
+            app.enableResetBtn();
             app.calResult();
             break;
         }
@@ -73,8 +78,10 @@ const app = {
       if (e.target.value.length > 9) {
         e.target.value = e.target.value.slice(0, 9);
       }
+      app.removeValidator('.calculator__input__bill');
       app.bill = Number(e.target.value);
       app.calResult();
+      app.enableResetBtn();
     };
 
     billInput.onkeydown = function (e) {
@@ -93,13 +100,20 @@ const app = {
       }
     };
 
+    billInput.onblur = function () {
+      if (app.bill == 0) {
+        app.addValidator(billInput, '.calculator__input__bill');
+      }
+    };
+
     peopleInput.oninput = function (e) {
       if (e.target.value.length > 9) {
         e.target.value = e.target.value.slice(0, 9);
       }
-      app.removeValidator();
+      app.removeValidator('.calculator__input__people');
       app.people = Number(e.target.value);
       app.calResult();
+      app.enableResetBtn();
     };
 
     peopleInput.onkeydown = function (e) {
@@ -117,6 +131,12 @@ const app = {
       }
     };
 
+    peopleInput.onblur = function () {
+      if (app.people == 0) {
+        app.addValidator(peopleInput, '.calculator__input__people');
+      }
+    };
+
     tipCustomInput.onfocus = function () {
       if ($('.button-tip.active')) {
         $('.button-tip.active').classList.remove('active');
@@ -130,6 +150,7 @@ const app = {
       app.tip = Number(e.target.value);
       app.renderTipBtn();
       app.calResult();
+      app.enableResetBtn();
     };
 
     tipCustomInput.onkeydown = function (e) {
@@ -148,24 +169,18 @@ const app = {
       }
     };
 
-    peopleInput.onblur = function () {
-      if (app.people == 0) {
-        app.addValidator();
-      }
+    tipCustomBtn.onclick = function (e) {
+      e.target.style.display = 'none';
+      tipCustomInput.style.display = 'block';
     };
 
     reset.onclick = function () {
       app.resetApp();
     };
-
-    tipCustomBtn.onclick = function (e) {
-      e.target.style.display = 'none';
-      tipCustomInput.style.display = 'block';
-    };
   },
 
   calResult: function () {
-    if (app.people !== 0) {
+    if (app.people !== 0 && app.bill !== 0) {
       app.amount = app.calAmount();
       app.total = app.calTotal();
       app.renderResult();
@@ -194,10 +209,12 @@ const app = {
     peopleInput.value = 0;
     app.renderTipBtn();
     app.renderResult();
+    app.enableResetBtn();
     tipCustomBtn.style.display = 'block';
     tipCustomInput.style.display = 'none';
     tipCustomInput.value = 0;
-    app.removeValidator();
+    app.removeValidator('.calculator__input__bill');
+    app.removeValidator('.calculator__input__people');
   },
 
   formattedNumber: function (num) {
@@ -209,21 +226,18 @@ const app = {
     return value;
   },
 
-  removeValidator: function () {
-    const peopleInputValid = $('.calculator__input__people.invalid');
-    if (peopleInputValid) {
-      peopleInputValid.classList.remove('invalid');
+  removeValidator: function (selector) {
+    const inputValid = $(`${selector}.invalid`);
+    if (inputValid) {
+      inputValid.classList.remove('invalid');
     }
   },
 
-  addValidator: function () {
-    if (peopleInput) {
-      var peopleInputWrap = app.getParent(
-        peopleInput,
-        '.calculator__input__people'
-      );
-      if (peopleInputWrap) {
-        peopleInputWrap.classList.add('invalid');
+  addValidator: function (element, selector) {
+    if (element) {
+      var parentElement = app.getParent(element, selector);
+      if (parentElement) {
+        parentElement.classList.add('invalid');
       }
     }
   },
@@ -234,6 +248,16 @@ const app = {
         return element.parentElement;
       }
       element = element.parentElement;
+    }
+  },
+
+  enableResetBtn: function () {
+    if (app.bill == 0 && app.tip == 0 && app.people == 0) {
+      reset.setAttribute('disabled', 'true');
+      reset.classList.add('disabled-btn');
+    } else {
+      reset.removeAttribute('disabled');
+      reset.classList.remove('disabled-btn');
     }
   },
 
