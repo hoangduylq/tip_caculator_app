@@ -73,6 +73,19 @@ body {
         text-align: right;
         border: none;
         border-radius: 5px; }
+      .calculator__input__bill-wrap input:focus, .calculator__input__people-wrap input:focus {
+        outline: solid 2px #34947c; }
+    .calculator__input__people div {
+      display: flex;
+      justify-content: space-between; }
+      .calculator__input__people div span {
+        display: none;
+        font-size: 1.6rem;
+        color: crimson; }
+    .calculator__input__people.invalid .invalid-noti {
+      display: block; }
+    .calculator__input__people.invalid input {
+      outline: solid 2px crimson; }
     .calculator__input__tip__list {
       margin-top: 10px;
       width: 100%;
@@ -97,14 +110,21 @@ body {
         background-color: #9fe8df;
         color: #00474b; }
       .calculator__input__tip__list input {
-        display: none; }
-    .calculator__input__people div {
-      display: flex;
-      justify-content: space-between; }
-      .calculator__input__people div span {
         display: none;
-        font-size: 1.6rem;
-        color: crimson; }
+        width: 110px;
+        flex: 0 0 33%;
+        max-width: 32%;
+        margin-top: 10px;
+        padding: 8px 0px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        color: #00474b;
+        background-color: #f3f8fb; }
+      .calculator__input__tip__list input:focus {
+        outline: 2px solid #34947c; }
   .calculator__result {
     width: 400px;
     background-color: #00474b;

@@ -3,6 +3,8 @@ const $$ = document.querySelectorAll.bind(document);
 
 const reset = $('#reset');
 const tipBtns = $$('.button-tip');
+const tipCustomBtn = $('#tip-custom');
+const tipCustomInput = $('#tip-custom-input');
 const billInput = $('#bill');
 const peopleInput = $('#people');
 const totalResult = $('#total');
@@ -77,12 +79,36 @@ const app = {
     };
 
     peopleInput.oninput = function (e) {
+      app.removeValidator();
       app.people = Number(e.target.value);
       app.calResult();
     };
 
+    tipCustomInput.onfocus = function () {
+      if ($('.button-tip.active')) {
+        $('.button-tip.active').classList.remove('active');
+      }
+    };
+
+    tipCustomInput.oninput = function (e) {
+      app.tip = Number(e.target.value);
+      app.renderTipBtn();
+      app.calResult();
+    };
+
+    peopleInput.onblur = function () {
+      if (app.people == 0) {
+        app.addValidator();
+      }
+    };
+
     reset.onclick = function () {
       app.resetApp();
+    };
+
+    tipCustomBtn.onclick = function (e) {
+      e.target.style.display = 'none';
+      tipCustomInput.style.display = 'block';
     };
   },
 
@@ -101,9 +127,7 @@ const app = {
   },
 
   calTotal: function () {
-    console.log(app.bill, app.tip, app.people);
     let result = 0;
-    console.log(result);
     result = (app.bill * (app.tip / 100) + app.bill) / app.people;
     return result;
   },
@@ -118,6 +142,9 @@ const app = {
     peopleInput.value = 0;
     app.renderTipBtn();
     app.renderResult();
+    tipCustomBtn.style.display = 'block';
+    tipCustomInput.style.display = 'none';
+    app.removeValidator();
   },
 
   formattedNumber: function (num) {
@@ -127,6 +154,34 @@ const app = {
     let n = Number(num);
     const value = (Math.round(n * 100) / 100).toFixed(2);
     return value;
+  },
+
+  removeValidator: function () {
+    const peopleInputValid = $('.calculator__input__people.invalid');
+    if (peopleInputValid) {
+      peopleInputValid.classList.remove('invalid');
+    }
+  },
+
+  addValidator: function () {
+    if (peopleInput) {
+      var peopleInputWrap = app.getParent(
+        peopleInput,
+        '.calculator__input__people'
+      );
+      if (peopleInputWrap) {
+        peopleInputWrap.classList.add('invalid');
+      }
+    }
+  },
+
+  getParent(element, selector) {
+    while (element.parentElement) {
+      if (element.parentElement.matches(selector)) {
+        return element.parentElement;
+      }
+      element = element.parentElement;
+    }
   },
 
   start: function () {

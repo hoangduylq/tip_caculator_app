@@ -85,6 +85,31 @@ body {
         border: none;
         border-radius: 5px;
       }
+
+      input:focus {
+        outline: solid 2px $border-color;
+      }
+    }
+
+    &__people div {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        display: none;
+        font-size: 1.6rem;
+        color: crimson;
+      }
+    }
+
+    &__people.invalid {
+      .invalid-noti {
+        display: block;
+      }
+
+      input {
+        outline: solid 2px crimson;
+      }
     }
 
     &__tip__list {
@@ -117,17 +142,22 @@ body {
 
       input {
         display: none;
+        width: 110px;
+        flex: 0 0 33%;
+        max-width: 32%;
+        margin-top: 10px;
+        padding: 8px 0px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        color: $primary-color;
+        background-color: #f3f8fb;
       }
-    }
 
-    &__people div {
-      display: flex;
-      justify-content: space-between;
-
-      span {
-        display: none;
-        font-size: 1.6rem;
-        color: crimson;
+      input:focus {
+        outline: 2px solid $border-color;
       }
     }
   }
