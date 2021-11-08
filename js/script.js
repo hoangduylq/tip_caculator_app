@@ -91,6 +91,9 @@ const app = {
     };
 
     tipCustomInput.oninput = function (e) {
+      if (e.target.value.length > 3) {
+        e.target.value = e.target.value.slice(0, 3);
+      }
       app.tip = Number(e.target.value);
       app.renderTipBtn();
       app.calResult();
