@@ -165,12 +165,13 @@ body {
     background-color: $primary-color;
     padding: 50px 40px;
     border-radius: 20px;
+    position: relative;
 
     &__tip-amount,
     &__tip-total {
       display: flex;
       justify-content: space-between;
-      padding-bottom: 80px;
+      padding-bottom: 60px;
 
       &__title {
         h4 {
@@ -187,16 +188,17 @@ body {
 
       .amount-result,
       .total-result {
+        line-height: 40px;
+        word-break: break-word;
         font-size: 4.4rem;
         color: #25c3ae;
         font-weight: bold;
         display: flex;
-        align-items: center;
       }
     }
 
     #reset {
-      width: 100%;
+      width: calc(100% - 80px);
       font-size: 2rem;
       font-weight: bold;
       text-transform: uppercase;
@@ -205,8 +207,9 @@ body {
       border: none;
       border-radius: 5px;
       padding: 10px 0;
-      margin-top: 20px;
       cursor: pointer;
+      position: absolute;
+      bottom: 40px;
     }
   }
 }

@@ -7,12 +7,10 @@
     .calculator__input {
       height: 400px;
       margin-bottom: 20px; }
-    .calculator__result__tip-amount, .calculator__result__tip-total {
-      padding-bottom: 20px; }
-      .calculator__result__tip-amount__title h4, .calculator__result__tip-total__title h4 {
-        font-size: 1.6rem; }
-      .calculator__result__tip-amount__title span, .calculator__result__tip-total__title span {
-        font-size: 1.2rem; } }
+    .calculator__result__tip-amount__title h4, .calculator__result__tip-total__title h4 {
+      font-size: 1.6rem; }
+    .calculator__result__tip-amount__title span, .calculator__result__tip-total__title span {
+      font-size: 1.2rem; } }
 
 @media (max-width: 480px) {
   .calculator {
