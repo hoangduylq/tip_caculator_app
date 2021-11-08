@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/css/main.css" />
+  </head>
+  <body>
+    <article class="main grid wide">
+      <section class="logo-wrap">
+        <img src="./public/icons/logo.svg" alt="" />
+      </section>
+      <section class="calculator">
+        <section class="calculator__input">
+          <div class="calculator__input__bill">
+            <label for="bill">Bill</label>
+            <div class="calculator__input__bill-wrap">
+              <img src="./public/icons/icon-dollar.svg" alt="" />
+              <input type="text" id="bill" placeholder="0" />
+            </div>
+          </div>
+
+          <div class="calculator__input__tip">
+            <h5>Select Tip %</h5>
+            <div class="calculator__input__tip__list">
+              <button class="button-tip" id="tip-5" data-index="5">5%</button>
+              <button class="button-tip" id="tip-10" data-index="10">
+                10%
+              </button>
+              <button class="button-tip" id="tip-15" data-index="15">
+                15%
+              </button>
+              <button class="button-tip" id="tip-25" data-index="25">
+                25%
+              </button>
+              <button class="button-tip" id="tip-50" data-index="50">
+                50%
+              </button>
+              <button class="button-tip" id="tip-custom">Custom</button>
+              <input type="text" id="tip-custom-input" />
+            </div>
+          </div>
+
+          <div class="calculator__input__people">
+            <div>
+              <label for="people">Number of People</label>
+              <span>Can't be zero</span>
+            </div>
+            <div class="calculator__input__people-wrap">
+              <img src="./public/icons/icon-person.svg" alt="" />
+              <input type="text" id="people" placeholder="0" />
+            </div>
+          </div>
+        </section>
+        <section class="calculator__result">
+          <div class="calculator__result__tip-amount">
+            <div class="calculator__result__tip-amount__title">
+              <h4>Tip Amount</h4>
+              <span>/ person</span>
+            </div>
+            <div class="amount-result">
+              <p>$</p>
+              <span id="amount">0.00</span>
+            </div>
+          </div>
+          <div class="calculator__result__tip-total">
+            <div class="calculator__result__tip-total__title">
+              <h4>Total</h4>
+              <span>/ person</span>
+            </div>
+            <div class="total-result">
+              <p>$</p>
+              <span id="total">0.00</span>
+            </div>
+          </div>
+
+          <button id="reset">Reset</button>
+        </section>
+      </section>
+    </article>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

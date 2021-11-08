@@ -1,0 +1,184 @@
+@import 'variables';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  scroll-behavior: smooth;
+  font-family: 'Space Mono', monospace;
+}
+
+//
+
+body {
+  background-color: #f0f0f0;
+}
+
+@import './grid.scss';
+
+// Main
+.main {
+  padding: 80px 0;
+  position: relative;
+  background-color: #c5e4e7;
+}
+
+.logo-wrap {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.calculator {
+  width: 920px;
+  height: 480px;
+  padding: 40px;
+  margin: 0 auto;
+  margin-top: 120px;
+  background-color: $white-color;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.5);
+
+  &__input {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &__bill label,
+    &__tip h5,
+    &__people label {
+      color: $text-color;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    &__bill-wrap,
+    &__people-wrap {
+      margin-top: 15px;
+      width: 100%;
+      position: relative;
+
+      img {
+        position: absolute;
+        left: 17px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 24px;
+      }
+
+      input {
+        padding: 10px 20px 10px 40px;
+        background-color: #f3f8fb;
+        font-size: 2rem;
+        width: 100%;
+        color: #00474b;
+        text-align: right;
+        border: none;
+        border-radius: 5px;
+      }
+    }
+
+    &__tip__list {
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      button {
+        width: 110px;
+        flex: 0 0 33%;
+        max-width: 32%;
+        margin-top: 10px;
+        padding: 8px 0px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        color: $white-color;
+        background: $primary-color;
+        cursor: pointer;
+      }
+
+      button.active {
+        background-color: $secondary-color;
+        color: $primary-color;
+      }
+
+      input {
+        display: none;
+      }
+    }
+
+    &__people div {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        display: none;
+        font-size: 1.6rem;
+        color: crimson;
+      }
+    }
+  }
+
+  &__result {
+    width: 400px;
+    background-color: $primary-color;
+    padding: 50px 40px;
+    border-radius: 20px;
+
+    &__tip-amount,
+    &__tip-total {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 80px;
+
+      &__title {
+        h4 {
+          font-size: 2rem;
+          color: #eee;
+          margin-bottom: 5px;
+        }
+
+        span {
+          font-size: 1.4rem;
+          color: rgb(165, 163, 163);
+        }
+      }
+
+      .amount-result,
+      .total-result {
+        font-size: 4.4rem;
+        color: #25c3ae;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    #reset {
+      width: 100%;
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $primary-color;
+      background-color: $secondary-color;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 0;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  }
+}
