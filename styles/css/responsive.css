@@ -1,0 +1,28 @@
+@media (max-width: 940px) {
+  .calculator {
+    flex-direction: column;
+    justify-content: center;
+    height: 920px;
+    width: 480px; }
+    .calculator__input {
+      height: 400px;
+      margin-bottom: 20px; } }
+
+@media (max-width: 480px) {
+  .calculator {
+    flex-direction: column;
+    justify-content: center;
+    height: 920px;
+    width: 360px;
+    max-width: 100%; }
+    .calculator__input {
+      height: 400px;
+      max-width: 100%;
+      margin-bottom: 20px; }
+    .calculator__input__tip__list {
+      max-width: 100%; }
+    .calculator__result {
+      max-width: 100%; }
+      .calculator__result .amount-result,
+      .calculator__result .total-result {
+        font-size: 3rem; } }
