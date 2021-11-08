@@ -22,7 +22,7 @@ body {
   margin: 0 auto; }
 
 .main {
-  padding: 80px 0;
+  padding: 80px 0 160px;
   position: relative;
   background-color: #c5e4e7; }
 
@@ -172,6 +172,11 @@ body {
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0; }
+
+input,
+button {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700; }
 
 @media (max-width: 940px) {
   .calculator {
