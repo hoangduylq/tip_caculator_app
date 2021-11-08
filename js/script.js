@@ -37,36 +37,32 @@ const app = {
   clickTipBtn: function () {
     for (let i = 0; i < tipBtns.length; i++) {
       tipBtns[i].addEventListener('click', function () {
-        if (this.id === 'tip-custom') {
-          console.log('custom');
-        } else {
-          switch (this.id) {
-            case 'tip-5':
-              app.tip = 5;
-              app.renderTipBtn();
-              app.calResult();
-              break;
-            case 'tip-10':
-              app.tip = 10;
-              app.renderTipBtn();
-              app.calResult();
-              break;
-            case 'tip-15':
-              app.tip = 15;
-              app.renderTipBtn();
-              app.calResult();
-              break;
-            case 'tip-25':
-              app.tip = 25;
-              app.renderTipBtn();
-              app.calResult();
-              break;
-            case 'tip-50':
-              app.tip = 50;
-              app.renderTipBtn();
-              app.calResult();
-              break;
-          }
+        switch (this.id) {
+          case 'tip-5':
+            app.tip = 5;
+            app.renderTipBtn();
+            app.calResult();
+            break;
+          case 'tip-10':
+            app.tip = 10;
+            app.renderTipBtn();
+            app.calResult();
+            break;
+          case 'tip-15':
+            app.tip = 15;
+            app.renderTipBtn();
+            app.calResult();
+            break;
+          case 'tip-25':
+            app.tip = 25;
+            app.renderTipBtn();
+            app.calResult();
+            break;
+          case 'tip-50':
+            app.tip = 50;
+            app.renderTipBtn();
+            app.calResult();
+            break;
         }
       });
     }
@@ -147,6 +143,7 @@ const app = {
     app.renderResult();
     tipCustomBtn.style.display = 'block';
     tipCustomInput.style.display = 'none';
+    tipCustomInput.value = 0;
     app.removeValidator();
   },
 
