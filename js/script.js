@@ -70,14 +70,44 @@ const app = {
 
   hanldeEvents: function () {
     billInput.oninput = function (e) {
+      if (e.target.value.length > 9) {
+        e.target.value = e.target.value.slice(0, 9);
+      }
       app.bill = Number(e.target.value);
       app.calResult();
     };
 
+    billInput.onkeydown = function (e) {
+      if (
+        !(
+          (e.keyCode > 95 && e.keyCode < 106) ||
+          (e.keyCode > 47 && e.keyCode < 58) ||
+          e.keyCode == 8
+        )
+      ) {
+        return false;
+      }
+    };
+
     peopleInput.oninput = function (e) {
+      if (e.target.value.length > 9) {
+        e.target.value = e.target.value.slice(0, 9);
+      }
       app.removeValidator();
       app.people = Number(e.target.value);
       app.calResult();
+    };
+
+    peopleInput.onkeydown = function (e) {
+      if (
+        !(
+          (e.keyCode > 95 && e.keyCode < 106) ||
+          (e.keyCode > 47 && e.keyCode < 58) ||
+          e.keyCode == 8
+        )
+      ) {
+        return false;
+      }
     };
 
     tipCustomInput.onfocus = function () {
@@ -93,6 +123,18 @@ const app = {
       app.tip = Number(e.target.value);
       app.renderTipBtn();
       app.calResult();
+    };
+
+    tipCustomInput.onkeydown = function (e) {
+      if (
+        !(
+          (e.keyCode > 95 && e.keyCode < 106) ||
+          (e.keyCode > 47 && e.keyCode < 58) ||
+          e.keyCode == 8
+        )
+      ) {
+        return false;
+      }
     };
 
     peopleInput.onblur = function () {
@@ -111,11 +153,11 @@ const app = {
     };
   },
 
-  calResult: async function () {
+  calResult: function () {
     if (app.people !== 0) {
-      app.amount = await app.calAmount();
-      app.total = await app.calTotal();
-      await app.renderResult();
+      app.amount = app.calAmount();
+      app.total = app.calTotal();
+      app.renderResult();
     }
   },
 

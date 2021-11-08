@@ -160,6 +160,10 @@ body {
       margin-top: 20px;
       cursor: pointer; }
 
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
 @media (max-width: 940px) {
   .calculator {
     flex-direction: column;
