@@ -82,7 +82,11 @@ const app = {
         !(
           (e.keyCode > 95 && e.keyCode < 106) ||
           (e.keyCode > 47 && e.keyCode < 58) ||
-          e.keyCode == 8
+          e.keyCode == 8 ||
+          e.keyCode == 37 ||
+          e.keyCode == 39 ||
+          e.keyCode == 46 ||
+          e.keyCode == 110
         )
       ) {
         return false;
@@ -103,7 +107,10 @@ const app = {
         !(
           (e.keyCode > 95 && e.keyCode < 106) ||
           (e.keyCode > 47 && e.keyCode < 58) ||
-          e.keyCode == 8
+          e.keyCode == 8 ||
+          e.keyCode == 37 ||
+          e.keyCode == 39 ||
+          e.keyCode == 46
         )
       ) {
         return false;
@@ -117,8 +124,8 @@ const app = {
     };
 
     tipCustomInput.oninput = function (e) {
-      if (e.target.value.length > 3) {
-        e.target.value = e.target.value.slice(0, 3);
+      if (e.target.value.length > 4) {
+        e.target.value = e.target.value.slice(0, 4);
       }
       app.tip = Number(e.target.value);
       app.renderTipBtn();
@@ -130,7 +137,11 @@ const app = {
         !(
           (e.keyCode > 95 && e.keyCode < 106) ||
           (e.keyCode > 47 && e.keyCode < 58) ||
-          e.keyCode == 8
+          e.keyCode == 8 ||
+          e.keyCode == 37 ||
+          e.keyCode == 39 ||
+          e.keyCode == 46 ||
+          e.keyCode == 110
         )
       ) {
         return false;
