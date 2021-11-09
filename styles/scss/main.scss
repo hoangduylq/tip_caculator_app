@@ -46,9 +46,11 @@ body {
   justify-content: space-between;
   border-radius: 30px;
   box-shadow: rgba(0, 0, 0, 0.5);
+  position: relative;
 
   &__input {
     width: 380px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -162,6 +164,23 @@ body {
     }
   }
 
+  #submit-btn {
+    z-index: 2;
+    position: absolute;
+    bottom: 80px;
+    right: 80px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $primary-color;
+    background-color: $secondary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+    cursor: pointer;
+    width: 17%;
+  }
+
   &__result {
     width: 400px;
     background-color: $primary-color;
@@ -200,7 +219,7 @@ body {
     }
 
     #reset {
-      width: calc(100% - 80px);
+      width: 38%;
       font-size: 2rem;
       font-weight: bold;
       text-transform: uppercase;

@@ -17,50 +17,53 @@
         <img src="./public/icons/logo.svg" alt="" />
       </section>
       <section class="calculator">
-        <section class="calculator__input">
-          <div class="calculator__input__bill">
-            <div>
-              <label for="bill">Number of People</label>
-              <span class="invalid-noti">Can't be zero</span>
+        <form action="" class="form">
+          <section class="calculator__input">
+            <div class="calculator__input__bill">
+              <div>
+                <label for="bill">Number of People</label>
+                <span class="invalid-noti">Can't be zero</span>
+              </div>
+              <div class="calculator__input__bill-wrap">
+                <img src="./public/icons/icon-dollar.svg" alt="" />
+                <input type="number" id="bill" placeholder="0" />
+              </div>
             </div>
-            <div class="calculator__input__bill-wrap">
-              <img src="./public/icons/icon-dollar.svg" alt="" />
-              <input type="number" id="bill" placeholder="0" />
-            </div>
-          </div>
 
-          <div class="calculator__input__tip">
-            <h5>Select Tip %</h5>
-            <div class="calculator__input__tip__list">
-              <button class="button-tip" id="tip-5" data-index="5">5%</button>
-              <button class="button-tip" id="tip-10" data-index="10">
-                10%
-              </button>
-              <button class="button-tip" id="tip-15" data-index="15">
-                15%
-              </button>
-              <button class="button-tip" id="tip-25" data-index="25">
-                25%
-              </button>
-              <button class="button-tip" id="tip-50" data-index="50">
-                50%
-              </button>
-              <button class="button-tip" id="tip-custom">Custom</button>
-              <input type="number" id="tip-custom-input" placeholder="0" />
+            <div class="calculator__input__tip">
+              <h5>Select Tip %</h5>
+              <div class="calculator__input__tip__list">
+                <button class="button-tip" id="tip-5" data-index="5">5%</button>
+                <button class="button-tip" id="tip-10" data-index="10">
+                  10%
+                </button>
+                <button class="button-tip" id="tip-15" data-index="15">
+                  15%
+                </button>
+                <button class="button-tip" id="tip-25" data-index="25">
+                  25%
+                </button>
+                <button class="button-tip" id="tip-50" data-index="50">
+                  50%
+                </button>
+                <button class="button-tip" id="tip-custom">Custom</button>
+                <input type="number" id="tip-custom-input" placeholder="0" />
+              </div>
             </div>
-          </div>
 
-          <div class="calculator__input__people">
-            <div>
-              <label for="people">Number of People</label>
-              <span class="invalid-noti">Can't be zero</span>
+            <div class="calculator__input__people">
+              <div>
+                <label for="people">Number of People</label>
+                <span class="invalid-noti">Can't be zero</span>
+              </div>
+              <div class="calculator__input__people-wrap">
+                <img src="./public/icons/icon-person.svg" alt="" />
+                <input type="number" id="people" placeholder="0" />
+              </div>
             </div>
-            <div class="calculator__input__people-wrap">
-              <img src="./public/icons/icon-person.svg" alt="" />
-              <input type="number" id="people" placeholder="0" />
-            </div>
-          </div>
-        </section>
+          </section>
+          <button id="submit-btn">Result</button>
+        </form>
         <section class="calculator__result">
           <div class="calculator__result__tip-amount">
             <div class="calculator__result__tip-amount__title">

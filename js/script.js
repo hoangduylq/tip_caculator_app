@@ -9,6 +9,7 @@ const billInput = $('#bill');
 const peopleInput = $('#people');
 const totalResult = $('#total');
 const amountResult = $('#amount');
+const submitBtn = $('#submit-btn');
 
 const app = {
   bill: 0,
@@ -36,37 +37,38 @@ const app = {
 
   clickTipBtn: function () {
     for (let i = 0; i < tipBtns.length; i++) {
-      tipBtns[i].addEventListener('click', function () {
+      tipBtns[i].addEventListener('click', function (e) {
+        e.preventDefault();
         switch (this.id) {
           case 'tip-5':
             app.tip = 5;
             app.renderTipBtn();
             app.enableResetBtn();
-            app.calResult();
+            // app.calResult();
             break;
           case 'tip-10':
             app.tip = 10;
             app.renderTipBtn();
             app.enableResetBtn();
-            app.calResult();
+            // app.calResult();
             break;
           case 'tip-15':
             app.tip = 15;
             app.renderTipBtn();
             app.enableResetBtn();
-            app.calResult();
+            // app.calResult();
             break;
           case 'tip-25':
             app.tip = 25;
             app.renderTipBtn();
             app.enableResetBtn();
-            app.calResult();
+            // app.calResult();
             break;
           case 'tip-50':
             app.tip = 50;
             app.renderTipBtn();
             app.enableResetBtn();
-            app.calResult();
+            // app.calResult();
             break;
         }
       });
@@ -80,7 +82,7 @@ const app = {
       }
       app.removeValidator('.calculator__input__bill');
       app.bill = Number(e.target.value);
-      app.calResult();
+      // app.calResult();
       app.enableResetBtn();
     };
 
@@ -112,7 +114,7 @@ const app = {
       }
       app.removeValidator('.calculator__input__people');
       app.people = Number(e.target.value);
-      app.calResult();
+      // app.calResult();
       app.enableResetBtn();
     };
 
@@ -149,7 +151,7 @@ const app = {
       }
       app.tip = Number(e.target.value);
       app.renderTipBtn();
-      app.calResult();
+      // app.calResult();
       app.enableResetBtn();
     };
 
@@ -176,6 +178,25 @@ const app = {
 
     reset.onclick = function () {
       app.resetApp();
+    };
+
+    submitBtn.onclick = function (e) {
+      e.preventDefault();
+      if (app.bill == 0) {
+        app.addValidator(billInput, '.calculator__input__bill');
+      }
+      if (app.people == 0) {
+        app.addValidator(peopleInput, '.calculator__input__people');
+      }
+      if (app.bill && app.people) {
+        app.fetchResult().then(({ result, total, amount }) => {
+          if (result) {
+            app.total = total;
+            app.amount = amount;
+            app.renderResult();
+          }
+        });
+      }
     };
   },
 
@@ -259,6 +280,14 @@ const app = {
       reset.removeAttribute('disabled');
       reset.classList.remove('disabled-btn');
     }
+  },
+
+  fetchResult: async function () {
+    const response = await fetch(
+      `https://plitter-server.vercel.app/api/calculate?bill=${app.bill}&people=${app.people}&tipPercent=${app.tip}`
+    );
+    const data = await response.json();
+    return data;
   },
 
   start: function () {

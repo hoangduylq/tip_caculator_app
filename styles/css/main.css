@@ -42,9 +42,11 @@ body {
   display: flex;
   justify-content: space-between;
   border-radius: 30px;
-  box-shadow: rgba(0, 0, 0, 0.5); }
+  box-shadow: rgba(0, 0, 0, 0.5);
+  position: relative; }
   .calculator__input {
     width: 380px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around; }
@@ -125,6 +127,21 @@ body {
         background-color: #f3f8fb; }
       .calculator__input__tip__list input:focus {
         outline: 2px solid #34947c; }
+  .calculator #submit-btn {
+    z-index: 2;
+    position: absolute;
+    bottom: 80px;
+    right: 80px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #00474b;
+    background-color: #9fe8df;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+    cursor: pointer;
+    width: 17%; }
   .calculator__result {
     width: 400px;
     background-color: #00474b;
@@ -152,7 +169,7 @@ body {
         font-weight: bold;
         display: flex; }
     .calculator__result #reset {
-      width: calc(100% - 80px);
+      width: 38%;
       font-size: 2rem;
       font-weight: bold;
       text-transform: uppercase;
@@ -186,11 +203,15 @@ button {
     width: 480px; }
     .calculator__input {
       height: 400px;
+      width: 100%;
       margin-bottom: 20px; }
     .calculator__result__tip-amount__title h4, .calculator__result__tip-total__title h4 {
       font-size: 1.6rem; }
     .calculator__result__tip-amount__title span, .calculator__result__tip-total__title span {
-      font-size: 1.2rem; } }
+      font-size: 1.2rem; }
+    .calculator #submit-btn {
+      width: 32%;
+      bottom: 110px; } }
 
 @media (max-width: 480px) {
   .calculator {
@@ -200,7 +221,6 @@ button {
     max-width: 100%; }
     .calculator__input {
       height: 400px;
-      max-width: 100%;
       margin-bottom: 20px; }
     .calculator__input__tip__list {
       max-width: 100%; }
@@ -212,4 +232,12 @@ button {
       max-width: 100%; }
       .calculator__result .amount-result,
       .calculator__result .total-result {
-        font-size: 3rem; } }
+        font-size: 3rem; }
+    .calculator #submit-btn {
+      width: 26%; }
+    .calculator #reset {
+      width: 33%; } }
+
+@media (max-width: 350px) {
+  #submit-btn {
+    bottom: 90px !important; } }

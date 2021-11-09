@@ -6,11 +6,15 @@
     width: 480px; }
     .calculator__input {
       height: 400px;
+      width: 100%;
       margin-bottom: 20px; }
     .calculator__result__tip-amount__title h4, .calculator__result__tip-total__title h4 {
       font-size: 1.6rem; }
     .calculator__result__tip-amount__title span, .calculator__result__tip-total__title span {
-      font-size: 1.2rem; } }
+      font-size: 1.2rem; }
+    .calculator #submit-btn {
+      width: 32%;
+      bottom: 110px; } }
 
 @media (max-width: 480px) {
   .calculator {
@@ -20,7 +24,6 @@
     max-width: 100%; }
     .calculator__input {
       height: 400px;
-      max-width: 100%;
       margin-bottom: 20px; }
     .calculator__input__tip__list {
       max-width: 100%; }
@@ -32,4 +35,12 @@
       max-width: 100%; }
       .calculator__result .amount-result,
       .calculator__result .total-result {
-        font-size: 3rem; } }
+        font-size: 3rem; }
+    .calculator #submit-btn {
+      width: 26%; }
+    .calculator #reset {
+      width: 33%; } }
+
+@media (max-width: 350px) {
+  #submit-btn {
+    bottom: 90px !important; } }
