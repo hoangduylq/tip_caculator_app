@@ -17,6 +17,7 @@ const app = {
   people: 0,
   total: 0,
   amount: 0,
+  isRequest: false,
 
   renderTipBtn: function () {
     if ($('.button-tip.active')) {
@@ -199,14 +200,27 @@ const app = {
       if (app.bill && app.people) {
         submitBtn.setAttribute('disabled', 'true');
         submitBtn.classList.add('disabled-btn');
+        app.isRequest = true;
         app.fetchResult().then(({ result, total, amount }) => {
           if (result) {
             app.total = total;
             app.amount = amount;
             app.renderResult();
             app.toggleBtn(submitBtn);
+            app.isRequest = false;
           }
         });
+
+        const checkRequest = setTimeout(() => {
+          if (app.isRequest) {
+            app.isRequest = false;
+            app.toggleBtn(submitBtn);
+            alert('Request failed');
+            if (!app.isRequest) {
+              clearTimeout(checkRequest);
+            }
+          }
+        }, 10000);
       }
     };
   },
