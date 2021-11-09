@@ -189,11 +189,15 @@ const app = {
         app.addValidator(peopleInput, '.calculator__input__people');
       }
       if (app.bill && app.people) {
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.classList.add('disabled-btn');
         app.fetchResult().then(({ result, total, amount }) => {
           if (result) {
             app.total = total;
             app.amount = amount;
             app.renderResult();
+            submitBtn.removeAttribute('disabled');
+            submitBtn.classList.remove('disabled-btn');
           }
         });
       }

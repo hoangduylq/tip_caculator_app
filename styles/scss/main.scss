@@ -182,6 +182,12 @@ body {
     width: 17%;
   }
 
+  .disabled-btn {
+    background-color: #e5e5e5 !important;
+    color: #bdbdbd !important;
+    cursor: default !important;
+  }
+
   &__result {
     width: 400px;
     background-color: $primary-color;

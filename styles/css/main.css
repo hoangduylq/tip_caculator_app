@@ -143,6 +143,10 @@ body {
     padding: 10px 0;
     cursor: pointer;
     width: 17%; }
+  .calculator .disabled-btn {
+    background-color: #e5e5e5 !important;
+    color: #bdbdbd !important;
+    cursor: default !important; }
   .calculator__result {
     width: 400px;
     background-color: #00474b;
