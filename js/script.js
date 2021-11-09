@@ -230,14 +230,14 @@ const app = {
     app.people = 0;
     app.total = 0;
     app.amount = 0;
-    billInput.value = 0;
-    peopleInput.value = 0;
+    billInput.value = '';
+    peopleInput.value = '';
     app.renderTipBtn();
     app.renderResult();
     app.enableResetBtn();
     tipCustomBtn.style.display = 'block';
     tipCustomInput.style.display = 'none';
-    tipCustomInput.value = 0;
+    tipCustomInput.value = '';
     app.removeValidator('.calculator__input__bill');
     app.removeValidator('.calculator__input__people');
   },
