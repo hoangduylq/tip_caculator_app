@@ -43,31 +43,36 @@ const app = {
           case 'tip-5':
             app.tip = 5;
             app.renderTipBtn();
-            app.enableResetBtn();
+            app.toggleBtn(reset);
+            app.toggleBtn(submitBtn);
             // app.calResult();
             break;
           case 'tip-10':
             app.tip = 10;
             app.renderTipBtn();
-            app.enableResetBtn();
+            app.toggleBtn(reset);
+            app.toggleBtn(submitBtn);
             // app.calResult();
             break;
           case 'tip-15':
             app.tip = 15;
             app.renderTipBtn();
-            app.enableResetBtn();
+            app.toggleBtn(reset);
+            app.toggleBtn(submitBtn);
             // app.calResult();
             break;
           case 'tip-25':
             app.tip = 25;
             app.renderTipBtn();
-            app.enableResetBtn();
+            app.toggleBtn(reset);
+            app.toggleBtn(submitBtn);
             // app.calResult();
             break;
           case 'tip-50':
             app.tip = 50;
             app.renderTipBtn();
-            app.enableResetBtn();
+            app.toggleBtn(reset);
+            app.toggleBtn(submitBtn);
             // app.calResult();
             break;
         }
@@ -83,7 +88,8 @@ const app = {
       app.removeValidator('.calculator__input__bill');
       app.bill = Number(e.target.value);
       // app.calResult();
-      app.enableResetBtn();
+      app.toggleBtn(reset);
+      app.toggleBtn(submitBtn);
     };
 
     billInput.onkeydown = function (e) {
@@ -115,7 +121,8 @@ const app = {
       app.removeValidator('.calculator__input__people');
       app.people = Number(e.target.value);
       // app.calResult();
-      app.enableResetBtn();
+      app.toggleBtn(reset);
+      app.toggleBtn(submitBtn);
     };
 
     peopleInput.onkeydown = function (e) {
@@ -152,7 +159,8 @@ const app = {
       app.tip = Number(e.target.value);
       app.renderTipBtn();
       // app.calResult();
-      app.enableResetBtn();
+      app.toggleBtn(reset);
+      app.toggleBtn(submitBtn);
     };
 
     tipCustomInput.onkeydown = function (e) {
@@ -196,8 +204,7 @@ const app = {
             app.total = total;
             app.amount = amount;
             app.renderResult();
-            submitBtn.removeAttribute('disabled');
-            submitBtn.classList.remove('disabled-btn');
+            app.toggleBtn(submitBtn);
           }
         });
       }
@@ -234,7 +241,8 @@ const app = {
     peopleInput.value = '';
     app.renderTipBtn();
     app.renderResult();
-    app.enableResetBtn();
+    app.toggleBtn(reset);
+    app.toggleBtn(submitBtn);
     tipCustomBtn.style.display = 'block';
     tipCustomInput.style.display = 'none';
     tipCustomInput.value = '';
@@ -276,13 +284,13 @@ const app = {
     }
   },
 
-  enableResetBtn: function () {
+  toggleBtn: function (element) {
     if (app.bill == 0 && app.tip == 0 && app.people == 0) {
-      reset.setAttribute('disabled', 'true');
-      reset.classList.add('disabled-btn');
+      element.setAttribute('disabled', 'true');
+      element.classList.add('disabled-btn');
     } else {
-      reset.removeAttribute('disabled');
-      reset.classList.remove('disabled-btn');
+      element.removeAttribute('disabled');
+      element.classList.remove('disabled-btn');
     }
   },
 
