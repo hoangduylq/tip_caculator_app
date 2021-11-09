@@ -22,7 +22,8 @@ body {
   margin: 0 auto; }
 
 .main {
-  padding: 80px 0 160px;
+  height: 100%;
+  padding: 80px 0;
   position: relative;
   background-color: #c5e4e7; }
 
@@ -42,7 +43,7 @@ body {
   display: flex;
   justify-content: space-between;
   border-radius: 30px;
-  box-shadow: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   position: relative; }
   .calculator__input {
     width: 380px;
@@ -229,15 +230,20 @@ button {
         flex: 0 0 50%;
         max-width: 48%; }
     .calculator__result {
-      max-width: 100%; }
+      max-width: 100%;
+      height: 100%; }
       .calculator__result .amount-result,
       .calculator__result .total-result {
         font-size: 3rem; }
     .calculator #submit-btn {
-      width: 26%; }
+      width: calc(100% - 160px);
+      bottom: 115px; }
     .calculator #reset {
-      width: 33%; } }
+      width: calc(100% - 80px);
+      bottom: 20px; } }
 
 @media (max-width: 350px) {
-  #submit-btn {
-    bottom: 90px !important; } }
+  .calculator {
+    height: 900px; }
+  .calculator__result {
+    padding-bottom: 100px; } }

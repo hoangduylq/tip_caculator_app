@@ -55,6 +55,7 @@
 
     &__result {
       max-width: 100%;
+      height: 100%;
 
       .amount-result,
       .total-result {
@@ -63,17 +64,22 @@
     }
 
     #submit-btn {
-      width: 26%;
+      width: calc(100% - 160px);
+      bottom: 115px;
     }
 
     #reset {
-      width: 33%;
+      width: calc(100% - 80px);
+      bottom: 20px;
     }
   }
 }
 
 @media (max-width: 350px) {
-  #submit-btn {
-    bottom: 90px !important;
+  .calculator {
+    height: 900px;
+  }
+  .calculator__result {
+    padding-bottom: 100px;
   }
 }

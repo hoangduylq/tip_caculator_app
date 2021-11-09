@@ -23,7 +23,8 @@ body {
 
 // Main
 .main {
-  padding: 80px 0 160px;
+  height: 100%;
+  padding: 80px 0;
   position: relative;
   background-color: #c5e4e7;
 }
@@ -45,7 +46,7 @@ body {
   display: flex;
   justify-content: space-between;
   border-radius: 30px;
-  box-shadow: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   position: relative;
 
   &__input {
