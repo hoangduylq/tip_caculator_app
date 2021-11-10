@@ -101,7 +101,8 @@ const app = {
           e.keyCode == 37 ||
           e.keyCode == 39 ||
           e.keyCode == 46 ||
-          e.keyCode == 110
+          e.keyCode == 110 ||
+          e.keyCode == 190
         )
       ) {
         return false;
@@ -172,7 +173,8 @@ const app = {
           e.keyCode == 37 ||
           e.keyCode == 39 ||
           e.keyCode == 46 ||
-          e.keyCode == 110
+          e.keyCode == 110 ||
+          e.keyCode == 190
         )
       ) {
         return false;
@@ -190,10 +192,10 @@ const app = {
 
     submitBtn.onclick = function (e) {
       e.preventDefault();
-      if (app.bill == 0) {
+      if (app.bill <= 0) {
         app.addValidator(billInput, '.calculator__input__bill');
       }
-      if (app.people == 0) {
+      if (app.people <= 0) {
         app.addValidator(peopleInput, '.calculator__input__people');
       }
       if (app.bill && app.people) {
