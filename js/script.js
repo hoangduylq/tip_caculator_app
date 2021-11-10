@@ -17,7 +17,6 @@ const app = {
   people: 0,
   total: 0,
   amount: 0,
-  isRequest: false,
 
   renderTipBtn: function () {
     if ($('.button-tip.active')) {
@@ -200,27 +199,17 @@ const app = {
       if (app.bill && app.people) {
         submitBtn.setAttribute('disabled', 'true');
         submitBtn.classList.add('disabled-btn');
-        app.isRequest = true;
+        reset.setAttribute('disabled', 'true');
+        reset.classList.add('disabled-btn');
         app.fetchResult().then(({ result, total, amount }) => {
           if (result) {
             app.total = total;
             app.amount = amount;
             app.renderResult();
             app.toggleBtn(submitBtn);
-            app.isRequest = false;
+            app.toggleBtn(reset);
           }
         });
-
-        const checkRequest = setTimeout(() => {
-          if (app.isRequest) {
-            app.isRequest = false;
-            app.toggleBtn(submitBtn);
-            alert('Request failed');
-            if (!app.isRequest) {
-              clearTimeout(checkRequest);
-            }
-          }
-        }, 10000);
       }
     };
   },
@@ -309,11 +298,17 @@ const app = {
   },
 
   fetchResult: async function () {
-    const response = await fetch(
-      `https://plitter-server.vercel.app/api/calculate?bill=${app.bill}&people=${app.people}&tipPercent=${app.tip}`
-    );
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch(
+        `https://plitter-server.vercel.app/api/calculate?bill=${app.bill}&people=${app.people}&tipPercent=${app.tip}`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      alert(error.message);
+      app.toggleBtn(submitBtn);
+      app.toggleBtn(reset);
+    }
   },
 
   start: function () {
